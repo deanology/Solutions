@@ -153,14 +153,23 @@ namespace Solution.HelperClasses
             else
                 return false;
         }
-        public List<PaymentViewModel> GetAllPayments2()
+        public List<PaymentViewModel> GetAllPayments2(string searchString)
         {
             connection();
             List<PaymentViewModel> payments = new List<PaymentViewModel>();
             SqlCommand cmd = null;
             string query = String.Empty;
-            query = "SELECT * FROM Payments INNER JOIN PaymentType ON Payments.PaymentTypeId = PaymentType.Id";
-            cmd = new SqlCommand(query, _conn);
+            if (String.IsNullOrEmpty(searchString))
+            {
+                query = "SELECT * FROM Payments INNER JOIN PaymentType ON Payments.PaymentTypeId = PaymentType.Id";
+                cmd = new SqlCommand(query, _conn);
+            }
+            else
+            {
+                query = "SELECT * FROM Payments INNER JOIN PaymentType ON Payments.PaymentTypeId = PaymentType.Id WHERE PatientID=@search";
+                cmd = new SqlCommand(query, _conn);
+                cmd.Parameters.AddWithValue("@search", searchString);
+            }
 
             //create a sqldataadapter
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);

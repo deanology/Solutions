@@ -18,9 +18,9 @@ namespace Solution.Controllers
         {
             return View(pym.GetAllPayments(searchString));
         }*/
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(pym.GetAllPayments2());
+            return View(pym.GetAllPayments2(searchString));
         }
         public ActionResult PostPayment()
         {
