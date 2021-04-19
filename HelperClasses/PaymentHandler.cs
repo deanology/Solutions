@@ -88,13 +88,12 @@ namespace Solution.HelperClasses
             }
             return payments;
         }*/
-        public Payment GetPayment(int id)
+        public PaymentViewModel GetPayment(int id)
         {
             connection();
-            Payment pt = new Payment();
-
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Payments WHERE Id = @id", _conn);
-            /*SqlCommand cmd = new SqlCommand("SELECT * FROM Payments, PaymentType WHERE Payments.PaymentTypeId = PaymentType.Id", _conn);*/
+            PaymentViewModel pt = new PaymentViewModel();
+            /*SqlCommand cmd = new SqlCommand("SELECT * FROM Payments WHERE Id = @id", _conn);*/
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Payments INNER JOIN PaymentType ON Payments.PaymentTypeId = PaymentType.Id WHERE Payments.Id = @id", _conn);
             cmd.Parameters.AddWithValue("@id", id);
             //create a sqldataadapter
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -110,6 +109,7 @@ namespace Solution.HelperClasses
                 pt.Amount = Convert.ToDouble(item["Amount"]);
                 pt.Balance = Convert.ToDouble(item["Balance"]);
                 pt.PaymentDate = Convert.ToDateTime(item["PaymentDate"]);
+                pt.PaymentType = Convert.ToString(item["Description"]);
                 pt.PatientId = Convert.ToString(item["PatientID"]);
                 pt.CreatedAt = Convert.ToDateTime(item["DateCreated"]);
                 pt.UpdatedAt = Convert.ToDateTime(item["DateUpdated"]);

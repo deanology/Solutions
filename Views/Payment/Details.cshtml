@@ -1,4 +1,4 @@
-﻿@model Solution.Models.Payment
+﻿@model Solution.Models.ViewModel.PaymentViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -44,13 +44,13 @@
             @Html.DisplayFor(model => model.PatientId)
         </dd>
 
-        @*<dt>
+        <dt>
             @Html.DisplayNameFor(model => model.PaymentType)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PaymentType)
-        </dd>*@
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.UpdatedAt)
         </dt>
