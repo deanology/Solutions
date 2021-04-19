@@ -59,7 +59,7 @@ namespace Solution.HelperClasses
 
             else
             {
-                query = "SELECT * FROM Patients WHERE Firstname=@search OR Lastname=@search ORDER BY Firstname";
+                query = "SELECT * FROM Patients WHERE Firstname=@search OR Lastname=@search OR Email=@search OR GenerateID=@search ORDER BY Firstname";
                 cmd = new SqlCommand(query, _conn);
                 cmd.Parameters.AddWithValue("@search", searchString);
             }
