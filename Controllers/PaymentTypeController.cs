@@ -10,7 +10,7 @@ namespace Solution.Controllers
 {
     public class PaymentTypeController : Controller
     {
-        PaymentTypeHandler pth = new PaymentTypeHandler();
+        PaymentTypeService pth = new PaymentTypeService();
         // GET: PaymentType
         public ActionResult Index()
         {

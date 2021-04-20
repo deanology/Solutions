@@ -10,7 +10,7 @@ namespace Solution.Controllers
 {
     public class PatientController : Controller
     {
-        PatientHandler pth = new PatientHandler();
+        PatientService pth = new PatientService();
         // GET: Patient
         public ActionResult Index(string searchString)
         {

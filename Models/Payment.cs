@@ -26,7 +26,6 @@ namespace Solution.Models
         [Display(Name = "Patient ID")]
         public string PatientId { get; set; }
 
-        public int PatientID { get; set; }
         public Patient Patient { get; set; }
         [Required(ErrorMessage = "Please Select a Payment Type!")]
         [DisplayName("Payment Type")]

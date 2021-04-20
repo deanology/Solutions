@@ -10,7 +10,7 @@ using System.Web;
 
 namespace Solution.HelperClasses
 {
-    public class PaymentTypeHandler
+    public class PaymentTypeService
     {
         private SqlConnection _conn;
         private void connection()

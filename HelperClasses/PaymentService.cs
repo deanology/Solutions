@@ -10,7 +10,7 @@ using System.Web;
 
 namespace Solution.HelperClasses
 {
-    public class PaymentHandler
+    public class PaymentService
     {
         private SqlConnection _conn;
         private void connection()
@@ -44,50 +44,7 @@ namespace Solution.HelperClasses
                 return false;
 
         }
-        /*public List<Payment> GetAllPayments(string searchString)
-        {
-            connection();
-            List<Payment> payments = new List<Payment>();
-            SqlCommand cmd = null;
-            string query = String.Empty;
 
-            if (String.IsNullOrEmpty(searchString))
-            {
-                query = "SELECT * FROM Payments";
-                cmd = new SqlCommand(query, _conn);
-            }
-
-            else
-            {
-                *//*"  SELECT * FROM Payments INNER JOIN PaymentType ON Payments.PaymentTypeId = PaymentType.Id"*//*
-                query = "SELECT * FROM Payments WHERE PatientID=@search ORDER BY Firstname";
-                cmd = new SqlCommand(query, _conn);
-                cmd.Parameters.AddWithValue("@search", searchString);
-            }
-
-            //create a sqldataadapter
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            _conn.Open();
-            adapter.Fill(dt);
-            _conn.Close();
-            foreach (DataRow item in dt.Rows)
-            {
-                payments.Add(new Payment
-                {
-                    Id = Convert.ToInt32(item["Id"]),
-                    Amount = Convert.ToDouble(item["Amount"]),
-                    Balance = Convert.ToDouble(item["Balance"]),
-                    PaymentDate = Convert.ToDateTime(item["PaymentDate"]),
-                    PaymentTypeId = Convert.ToInt32(item["PaymentTypeId"]),
-                    PatientId = Convert.ToString(item["PatientID"]),
-                    CreatedAt = Convert.ToDateTime(item["DateCreated"]),
-                    UpdatedAt = Convert.ToDateTime(item["DateUpdated"])
-
-                });
-            }
-            return payments;
-        }*/
         public PaymentViewModel GetPayment(int id)
         {
             connection();

@@ -127,10 +127,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="HelperClasses\PatientHandler.cs" />
+    <Compile Include="HelperClasses\PatientService.cs" />
     <Compile Include="HelperClasses\PatientID.cs" />
-    <Compile Include="HelperClasses\PaymentHandler.cs" />
-    <Compile Include="HelperClasses\PaymentTypeHandler.cs" />
+    <Compile Include="HelperClasses\PaymentService.cs" />
+    <Compile Include="HelperClasses\PaymentTypeService.cs" />
     <Compile Include="Interfaces\IPaymentType.cs" />
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\Payment.cs" />

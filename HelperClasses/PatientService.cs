@@ -9,7 +9,7 @@ using System.Web;
 
 namespace Solution.HelperClasses
 {
-    public class PatientHandler
+    public class PatientService
     {
         private SqlConnection _conn;
         private void connection()

@@ -10,14 +10,9 @@ namespace Solution.Controllers
 {
     public class PaymentController : Controller
     {
-        PaymentTypeHandler pth = new PaymentTypeHandler();
-        PaymentHandler pym = new PaymentHandler();
-
-        // GET: Payment
-        /*public ActionResult Index(string searchString)
-        {
-            return View(pym.GetAllPayments(searchString));
-        }*/
+        PaymentTypeService pth = new PaymentTypeService();
+        PaymentService pym = new PaymentService();
+        
         public ActionResult Index(string searchString)
         {
             return View(pym.GetAllPayments2(searchString));
@@ -89,6 +84,6 @@ namespace Solution.Controllers
             }
 
         }
-        //delete a particular payment
+        
     }
 }
